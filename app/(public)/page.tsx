@@ -2,6 +2,7 @@ import { Navbar } from "@/components/shared/Navbar";
 import { Hero } from "./hero/Hero";
 import { Features } from "./features/Features";
 import { Pricing } from "./pricing/Pricing";
+import { Footer } from "@/components/shared/Footer";
 
 export default function LandingPage() {
   return (
@@ -23,6 +24,7 @@ export default function LandingPage() {
         </section>
       </main>
       {/* Footer component would go here */}
+      <Footer />
     </div>
   );
 }

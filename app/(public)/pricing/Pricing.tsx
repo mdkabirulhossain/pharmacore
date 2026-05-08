@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 
 const Plan = ({ name, price, features, popular = false, buttonText }: any) => (
   <div 
-    className={`relative flex flex-col p-10 rounded-[2rem] border transition-all duration-300 min-h-[580px] w-full
+    className={`relative flex flex-col p-10 rounded-4xl border transition-all duration-300 min-h-145 w-full
       ${popular 
         ? 'bg-black text-white border-black scale-[1.02] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)] z-10' 
         : 'bg-white text-black border-gray-200'
@@ -35,7 +35,7 @@ const Plan = ({ name, price, features, popular = false, buttonText }: any) => (
     </div>
 
     {/* Features List */}
-    <ul className="space-y-6 mb-12 flex-grow">
+    <ul className="space-y-6 mb-12 grow">
       {features.map((f: string, i: number) => (
         <li key={i} className="flex items-start gap-4 text-[13px] font-medium leading-tight">
           <div className={`mt-0.5 shrink-0 ${popular ? 'text-white' : 'text-green-500'}`}>
@@ -90,7 +90,7 @@ export const Pricing = () => {
 
   return (
     <section className="py-24 bg-white px-6">
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-350 mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-6xl font-bold text-black mb-8 tracking-tight">Scalable Plans</h2>
