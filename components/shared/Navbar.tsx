@@ -89,7 +89,7 @@ export const Navbar = () => {
 
       {/* MOBILE MENU (Slide Down Animation) */}
       <div
-        className={`md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg transition-all duration-300 ease-in-out overflow-hidden z-30 ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+        className={`md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg transition-all duration-300 ease-in-out overflow-hidden z-30 ${isOpen ? 'max-h-125 opacity-100' : 'max-h-0 opacity-0'
           }`}
       >
         <div className="px-6 py-6 space-y-6">
