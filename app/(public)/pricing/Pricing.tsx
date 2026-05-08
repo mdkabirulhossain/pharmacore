@@ -1,39 +1,111 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { Check } from 'lucide-react';
 
-const Plan = ({ name, price, features, popular = false }: any) => (
-  <div className={`relative p-8 rounded-2xl border transition-all ${popular ? 'bg-black text-white border-black scale-105 z-10 shadow-2xl' : 'bg-white text-black border-gray-100'}`}>
-    {popular && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-gray-200">Next Popular</span>}
-    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-4">{name}</p>
-    <div className="flex items-baseline gap-1 mb-8">
-      <span className="text-4xl font-bold">{price !== "Custom" ? `$${price}` : price}</span>
-      {price !== "Custom" && <span className="text-xs text-gray-500">/mo</span>}
+const Plan = ({ name, price, features, popular = false, buttonText }: any) => (
+  <div 
+    className={`relative flex flex-col p-10 rounded-[2rem] border transition-all duration-300 min-h-[580px] w-full
+      ${popular 
+        ? 'bg-black text-white border-black scale-[1.02] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)] z-10' 
+        : 'bg-white text-black border-gray-200'
+      }`}
+  >
+    {/* Top Badge for Popular Plan */}
+    {popular && (
+      <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-[0.2em] border border-gray-100 shadow-sm whitespace-nowrap">
+        Most Popular
+      </div>
+    )}
+
+    {/* Plan Name */}
+    <p className={`text-[11px] font-bold uppercase tracking-[0.15em] mb-8 ${popular ? 'text-gray-500' : 'text-gray-400'}`}>
+      {name}
+    </p>
+
+    {/* Price */}
+    <div className="flex items-baseline gap-1 mb-12">
+      <span className="text-6xl font-bold tracking-tight">
+        {price !== "Custom" ? `$${price}` : price}
+      </span>
+      {price !== "Custom" && (
+        <span className={`text-sm font-medium ${popular ? 'text-gray-500' : 'text-gray-400'}`}>
+          /mo
+        </span>
+      )}
     </div>
-    <ul className="space-y-4 mb-10">
+
+    {/* Features List */}
+    <ul className="space-y-6 mb-12 flex-grow">
       {features.map((f: string, i: number) => (
-        <li key={i} className="flex items-start gap-3 text-[11px] font-semibold leading-tight">
-          <CheckCircle2 size={14} className={popular ? "text-blue-400" : "text-green-500"} /> {f}
+        <li key={i} className="flex items-start gap-4 text-[13px] font-medium leading-tight">
+          <div className={`mt-0.5 shrink-0 ${popular ? 'text-white' : 'text-green-500'}`}>
+            <Check size={16} strokeWidth={3} />
+          </div>
+          <span className={popular ? 'text-gray-200' : 'text-gray-700'}>{f}</span>
         </li>
       ))}
     </ul>
-    <button className={`w-full py-3 rounded-md text-[10px] font-bold uppercase tracking-widest border ${popular ? 'bg-white text-black' : 'bg-white border-gray-200'}`}>
-      {name === "Starter" ? "Start for Free" : "Select Plan"}
+
+    {/* Action Button */}
+    <button 
+      className={`w-full py-4 rounded-xl text-[13px] font-bold transition-all
+        ${popular 
+          ? 'bg-white text-black hover:bg-gray-100' 
+          : 'bg-white text-black border-2 border-black hover:bg-black hover:text-white'
+        }`}
+    >
+      {buttonText}
     </button>
   </div>
 );
 
-export const Pricing = () => (
-  <section className="py-24 bg-[#f4f4f4] px-4">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold text-black mb-4">Scalable Plans</h2>
-      <p className="text-gray-500">Flexible options for every stage of your practice.</p>
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-7xl mx-auto">
-      <Plan name="Starter" price="0" features={["1 Registered User", "100 Product SKU Limit"]} />
-      <Plan name="Professional" price="449" popular={true} features={["Up to 5 Branches", "AI Inventory Forecasting", "Advanced Analytics", "Priority 24/7 Support"]} />
-      <Plan name="Growth" price="199" features={["Single Branch | Unlimited Users", "Full Inventory Engine"]} />
-      <Plan name="Enterprise" price="Custom" features={["Unlimited Global Scale", "Dedicated Account Manager"]} />
-    </div>
-  </section>
-);
+export const Pricing = () => {
+  const plans = [
+    {
+      name: "Starter",
+      price: "0",
+      buttonText: "Start for Free",
+      features: ["1 Registered User", "100 Product SKU Limit", "Basic POS Features"]
+    },
+    {
+      name: "Professional",
+      price: "449",
+      buttonText: "Get Pro Now",
+      popular: true,
+      features: ["Up to 5 Branches", "AI Inventory Forecasting", "Advanced Analytics", "Priority 24/7 Support"]
+    },
+    {
+      name: "Growth",
+      price: "199",
+      buttonText: "Select Plan",
+      features: ["Single Branch / Unlimited Users", "Full Inventory Engine", "Standard POS"]
+    },
+    {
+      name: "Enterprise",
+      price: "Custom",
+      buttonText: "Contact Sales",
+      features: ["Unlimited Global Scale", "Full API & Webhook Access", "Dedicated Account Manager"]
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-white px-6">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-6xl font-bold text-black mb-8 tracking-tight">Scalable Plans</h2>
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+            Flexible options for every stage of your practice, from solo practitioners to large networks.
+          </p>
+        </div>
+
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+          {plans.map((plan, index) => (
+            <Plan key={index} {...plan} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
