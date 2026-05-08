@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Search, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -35,7 +35,7 @@ export const Navbar = () => {
 
   return (
     <nav className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-360 mx-auto px-4 sm:px-6 md:px-10 h-20 flex items-center justify-between relative">
+      <div className="max-w-360 mx-auto px-4 sm:px-6 md:px-10 h-20 flex items-center justify-between relative bg-white z-20">
 
         {/* LEFT: Logo */}
         <div className="shrink-0 z-10">
@@ -67,10 +67,7 @@ export const Navbar = () => {
         {/* RIGHT: Actions */}
         <div className="flex items-center gap-2 sm:gap-4 md:gap-6 z-10">
           <div className="hidden sm:flex items-center gap-4 md:gap-6">
-            <button className="text-gray-400 hover:text-black transition-colors p-2">
-              <Search size={20} strokeWidth={2.5} />
-            </button>
-            <button className="text-[13px] font-semibold text-gray-600 hover:text-black">
+            <button className="text-[13px] font-semibold text-gray-600 hover:text-black transition-opacity">
               Login
             </button>
           </div>
@@ -92,28 +89,32 @@ export const Navbar = () => {
 
       {/* MOBILE MENU (Slide Down Animation) */}
       <div
-        className={`md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        className={`md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg transition-all duration-300 ease-in-out overflow-hidden z-30 ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
           }`}
       >
-        <div className="px-6 py-6 space-y-4">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`block text-sm transition-colors ${isActive ? 'font-bold text-black' : 'font-medium text-gray-500 hover:text-black'
-                  }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+        <div className="px-6 py-6 space-y-6">
+          <div className="space-y-4">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`block text-sm transition-colors ${isActive ? 'font-bold text-black' : 'font-medium text-gray-500 hover:text-black'
+                    }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+          
           <hr className="border-gray-100" />
-          <div className="flex items-center justify-between pt-2">
-            <button className="text-sm font-semibold text-gray-600 hover:text-black">Login</button>
-            <button className="text-gray-400 hover:text-black">
-              <Search size={18} />
+          
+          <div className="flex flex-col gap-4">
+            <button className="text-sm font-bold text-black text-left">Login to account</button>
+            <button className="w-full bg-black text-white text-[11px] font-bold py-4 rounded-md uppercase tracking-wider">
+              Get Started Free
             </button>
           </div>
         </div>
