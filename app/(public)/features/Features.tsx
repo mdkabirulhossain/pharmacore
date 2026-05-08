@@ -47,7 +47,7 @@ export const Features = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
           {/* Card 1: Automated Inventory (Large) */}
-          <div className="md:col-span-12 lg:col-span-8 bg-[#fdfdfd] rounded-3xl border border-gray-100 overflow-hidden flex flex-col md:flex-row min-h-[420px] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
+          <div className="md:col-span-12 lg:col-span-8 bg-[#fdfdfd] rounded-3xl border border-gray-100 overflow-hidden flex flex-col md:flex-row min-h-105 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
             <div className="p-8 sm:p-10 flex-1 flex flex-col justify-center">
               <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-8 border border-gray-100 shadow-sm">
                 <LayoutGrid size={24} className="text-black" />
@@ -67,10 +67,10 @@ export const Features = () => {
                 ))}
               </div>
             </div>
-            <div className="flex-1 bg-[#0a0f12] relative flex items-center justify-center overflow-hidden p-10 min-h-[320px] md:min-h-0">
+            <div className="flex-1 bg-[#0a0f12] relative flex items-center justify-center overflow-hidden p-10 min-h-80 md:min-h-0">
               {/* Abstract Globe UI */}
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 border border-blue-500/10 rounded-full flex items-center justify-center">
-                <div className="absolute inset-0 bg-blue-500/[0.03] rounded-full blur-3xl"></div>
+                <div className="absolute inset-0 bg-blue-500/3 rounded-full blur-3xl"></div>
                 <div className="w-36 h-36 sm:w-48 sm:h-48 border border-blue-400/20 rounded-full animate-pulse"></div>
                 <div className="absolute w-full h-px bg-blue-500/10 rotate-45"></div>
                 <div className="absolute w-full h-px bg-blue-500/10 -rotate-45"></div>
@@ -80,7 +80,7 @@ export const Features = () => {
           </div>
 
           {/* Card 2: Swift POS (Dark) */}
-          <div className="md:col-span-6 lg:col-span-4 bg-black text-white rounded-3xl p-8 sm:p-10 flex flex-col min-h-[420px] shadow-2xl">
+          <div className="md:col-span-6 lg:col-span-4 bg-black text-white rounded-3xl p-8 sm:p-10 flex flex-col min-h-105 shadow-2xl">
             <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-8">
               <ShoppingCart size={24} className="text-white" />
             </div>
@@ -88,7 +88,7 @@ export const Features = () => {
             <p className="text-gray-400 text-sm leading-relaxed mb-12">
               Reduced checkout times by 80% with integrated insurance claims.
             </p>
-            <div className="mt-auto bg-white/[0.03] rounded-2xl p-6 border border-white/10">
+            <div className="mt-auto bg-white/3 rounded-2xl p-6 border border-white/10">
               <div className="flex justify-between text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-6">
                 <span>Active Session</span>
                 <span className="text-white">$382.48</span>
@@ -107,11 +107,11 @@ export const Features = () => {
           </div>
 
           {/* Card 3: Clinical Analytics (Synchronized with Card 1) */}
-          <div className="md:col-span-6 lg:col-span-4 bg-[#fdfdfd] rounded-3xl border border-gray-100 p-8 sm:p-10 min-h-[420px] flex flex-col shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
+          <div className="md:col-span-6 lg:col-span-4 bg-[#fdfdfd] rounded-3xl border border-gray-100 p-8 sm:p-10 min-h-105 flex flex-col shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
             <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-8 border border-gray-100 shadow-sm">
               <BarChart3 size={24} className="text-black" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 tracking-tight">Clinical Analytics</h3>
+            <h3 className="text-2xl font-bold mb-4 tracking-tight text-black">Clinical Analytics</h3>
             <p className="text-gray-500 text-sm leading-relaxed mb-10">
               Deep insights into revenue cycles, patient adherence, and performance.
             </p>
@@ -135,9 +135,9 @@ export const Features = () => {
           </div>
 
           {/* Card 4: Security (Wide) */}
-          <div className="md:col-span-12 lg:col-span-8 bg-white rounded-3xl border border-gray-100 p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-10 min-h-[300px]">
+          <div className="md:col-span-12 lg:col-span-8 bg-white rounded-3xl border border-gray-100 p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-10 min-h-75">
             <div className="max-w-md text-center sm:text-left">
-              <h3 className="text-2xl font-bold mb-4">Clinical-Grade Security</h3>
+              <h3 className="text-2xl font-bold text-black mb-4">Clinical-Grade Security</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
                 Our system is audited for zero-error tolerance. Security is not a feature; it is our foundation. HIPAA, GDPR, and AES-256 compliant.
               </p>
